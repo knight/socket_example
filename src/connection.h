@@ -10,14 +10,11 @@ class Connection
 {
 	public:
 		Connection();
-		
 		virtual ~Connection();
 
-		void mySend();
 		void connect(char * host, char * port);
-		char * receive();
 		void send(char * command);
-
+		char * receive();
 
 	private:
 

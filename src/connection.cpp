@@ -68,16 +68,14 @@ void Connection::initConnection()
 		throw e;
 	}
 }
-char *Connection::receive()
-{
-	return "";
-}
-
 void Connection::send(char * command) {
 	::send(mSocket, command, strlen(command),0);
 }
 
-
+char *Connection::receive()
+{
+	return "";
+}
 Connection::~Connection() {
 	closesocket(mSocket);
 	WSACleanup();
