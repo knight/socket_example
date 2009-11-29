@@ -26,6 +26,7 @@ class Connection
 		void initWinSock();
         void initSocket();
         void initHost(char *host);
+        void copyIp();
         void initPort(char *port);
 		void initConnection();
 };

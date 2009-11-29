@@ -41,15 +41,21 @@ void Connection::initHost(char *ip) {
     if (INADDR_NONE == mSin.sin_addr.s_addr) {
        mPhe = gethostbyname(ip);
        if (mPhe) {
-          char * p1 = (char*) & mSin.sin_addr.s_addr;
-          char * p2 = (char*) & mPhe->h_addr[0];
-          for (unsigned int i=0 ; i < sizeof(mSin.sin_addr.s_addr); ++i) {
-              p1[i] = p2[i];
-          }
+    	   copyIp();
        } else {
-         std::cout << "Nie udalo sie odnalezc" << std::endl;
+    	   MyException e;
+    	   e.message = "Nie udalo sie odnalezc hosta";
+    	   throw e;
        }
     }
+}
+void Connection::copyIp()
+{
+    char * p1 = (char*) & mSin.sin_addr.s_addr;
+    char * p2 = (char*) & mPhe->h_addr[0];
+    for (unsigned int i=0 ; i < sizeof(mSin.sin_addr.s_addr); ++i) {
+              p1[i] = p2[i];
+          }
 }
 void Connection::initPort(char *port)
 {
