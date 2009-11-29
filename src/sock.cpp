@@ -11,23 +11,6 @@ int main() {
     	c.send("GET /\13\10");
     	cout << c.receive() << endl;
 
-
-
-    	/*
-		if (c.isNetworkUp()) {
-		  cout << "Udalo sie podniesc siec" << endl;
-		  if (c.isSocketCreated()) {
-			cout << "Utworzyc gniazdo" << endl;
-			c.myConnect();
-			c.mySend();
-		  } else {
-			cout << "Gniazda nie udalo sie utworzyc" << endl;
-		  }
-
-		} else {
-			cout << "Nie dziala podniesienie sieci" << endl;
-		}
-		*/
     } catch (MyException& e) {
     	cout << "Wystapil problem: " << endl;
     	cout << e.message << endl;

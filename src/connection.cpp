@@ -85,6 +85,4 @@ char *Connection::receive()
 Connection::~Connection() {
 	closesocket(mSocket);
 	WSACleanup();
-
-	std::cout << "Koniec zabawy z winszokiem" << std::endl;
 }
